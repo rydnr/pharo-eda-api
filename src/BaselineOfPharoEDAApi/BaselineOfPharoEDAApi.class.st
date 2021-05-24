@@ -17,14 +17,11 @@ BaselineOfPharoEDAApi >> baseline: spec [
 { #category : #meta }
 BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 	spec
-		group: 'core'
-			with:
-			#(#'EDA-API');
+		group: 'core' with: #(#'EDAAPI-Projections');
 		group: 'default' with: #('core')
 ]
 
 { #category : #meta }
 BaselineOfPharoEDAApi >> declarePackagesIn: spec [
-	spec
-		package: #'EDA-API'
+	spec package: #'EDAAPI-Projections'
 ]
