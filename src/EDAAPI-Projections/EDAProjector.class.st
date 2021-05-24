@@ -1,8 +1,6 @@
 Class {
 	#name : #EDAProjector,
 	#superclass : #Object,
-	#traits : 'EDATCollectionHelper',
-	#classTraits : 'EDATCollectionHelper classTrait',
 	#instVars : [
 		'eventStore',
 		'tenant'

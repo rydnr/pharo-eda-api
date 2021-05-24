@@ -1,8 +1,6 @@
 Class {
 	#name : #EDASingleProjectionPerEventProjector,
 	#superclass : #EDAProjector,
-	#traits : 'EDATErrorHelper',
-	#classTraits : 'EDATErrorHelper classTrait',
 	#category : #'EDAAPI-Projections'
 }
 
