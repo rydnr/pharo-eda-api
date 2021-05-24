@@ -1,8 +1,6 @@
 Class {
 	#name : #EDACompositeProjector,
 	#superclass : #EDAProjector,
-	#traits : 'EDATLogging',
-	#classTraits : 'EDATLogging classTrait',
 	#instVars : [
 		'projectorsByTenant'
 	],

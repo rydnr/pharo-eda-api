@@ -46,8 +46,6 @@ Keep in mind that each EDAProjection subclass will include its own design when i
 Class {
 	#name : #EDAProjection,
 	#superclass : #Object,
-	#traits : 'EDATLogging',
-	#classTraits : 'EDATLogging classTrait',
 	#instVars : [
 		'numProjectedEvents',
 		'lastProjectedEvent',

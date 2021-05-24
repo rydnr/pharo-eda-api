@@ -1,8 +1,6 @@
 Class {
 	#name : #EDAMultipleProjectionsPerEventProjector,
 	#superclass : #EDAProjector,
-	#traits : 'EDATLogging + EDATErrorHelper',
-	#classTraits : 'EDATLogging classTrait + EDATErrorHelper classTrait',
 	#category : #'EDAAPI-Projections'
 }
 
