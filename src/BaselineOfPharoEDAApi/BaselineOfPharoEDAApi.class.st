@@ -17,14 +17,17 @@ BaselineOfPharoEDAApi >> baseline: spec [
 { #category : #meta }
 BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 	spec
-		group: 'core' with: #(#'EDAAPI-Logging' #'EDAAPI-Projections');
+		group: 'core'
+			with: #(#'EDAAPI-Events' #'EDAAPI-Commands' #'EDAAPI-Logging' #'EDAAPI-Projections');
 		group: 'default' with: #('core')
 ]
 
 { #category : #meta }
 BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 	spec
+		package: #'EDAAPI-Events';
+		package: #'EDAAPI-Commands';
 		package: #'EDAAPI-Logging';
 		package: #'EDAAPI-Projections'
-		with: [ spec requires: #(#'EDAAPI-Logging') ]
+			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ]
 ]
