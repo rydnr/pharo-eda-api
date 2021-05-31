@@ -10,6 +10,7 @@ BaselineOfPharoEDAApi >> baseline: spec [
 	spec
 		for: #common
 		do: [ spec blessing: #baseline.
+			self includePharoEDACommon: spec.
 			self declarePackagesIn: spec.
 			self declareGroupsIn: spec ]
 ]
@@ -25,9 +26,17 @@ BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 { #category : #meta }
 BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 	spec
-		package: #'EDAAPI-Events';
+		package: #'EDAAPI-Events' with: [ spec requires: #('PharoEDACommon') ];
 		package: #'EDAAPI-Commands';
 		package: #'EDAAPI-Logging';
 		package: #'EDAAPI-Projections'
 			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ]
+]
+
+{ #category : #dependencies }
+BaselineOfPharoEDAApi >> includePharoEDACommon: spec [
+	spec
+		baseline: 'PharoEDACommon'
+		with: [ spec repository: 'github://osoco/pharo-eda-common:main' ].
+	^ spec
 ]
