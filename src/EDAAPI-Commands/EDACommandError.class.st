@@ -1,5 +1,5 @@
 "
-A EDACommandError is an error.
+An EDACommandError is an error.
 
 "
 Class {
