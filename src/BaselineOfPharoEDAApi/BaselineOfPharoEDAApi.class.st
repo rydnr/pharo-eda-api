@@ -26,11 +26,16 @@ BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 { #category : #meta }
 BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 	spec
-		package: #'EDAAPI-Events' with: [ spec requires: #('PharoEDACommon') ];
+		package: #'EDAAPI-Events'
+			with: [ spec requires: #('PharoEDACommon') ];
 		package: #'EDAAPI-Commands';
+		package: #'EDAAPI-Aggregates';
+		package: #'EDAAPI-Exceptions';
 		package: #'EDAAPI-Logging';
 		package: #'EDAAPI-Projections'
-			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ]
+			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ];
+					package: #'EDAAPI-TestSupport'
+
 ]
 
 { #category : #dependencies }
