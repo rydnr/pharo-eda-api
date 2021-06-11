@@ -19,7 +19,8 @@ BaselineOfPharoEDAApi >> baseline: spec [
 BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 	spec
 		group: 'core'
-			with: #(#'EDAAPI-Events' #'EDAAPI-Commands' #'EDAAPI-Logging' #'EDAAPI-Projections');
+			with:
+			#(#'EDAAPI-Events' #'EDAAPI-Commands' #'EDAAPI-Aggregates' #'EDAAPI-Exceptions' #'EDAAPI-TestSupport' #'EDAAPI-Logging' #'EDAAPI-Projections');
 		group: 'default' with: #('core')
 ]
 
@@ -35,7 +36,6 @@ BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 		package: #'EDAAPI-Projections'
 			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ];
 					package: #'EDAAPI-TestSupport'
-
 ]
 
 { #category : #dependencies }
