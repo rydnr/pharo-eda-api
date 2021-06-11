@@ -20,5 +20,5 @@ EDADeleteCommandResultEvent >> initialize [
 
 { #category : #messaging }
 EDADeleteCommandResultEvent >> routingKey [
-	^ (EDAMessageSerializer nameWithoutPrefixForMessageClass: self aggregateRootClass) asLowercase , '.deleted'
+	^ (EDACMessageSerializer nameWithoutPrefixForMessageClass: self aggregateRootClass) asLowercase , '.deleted'
 ]

@@ -156,7 +156,7 @@ EDAEventSourcingEvent >> initialize [
 { #category : #accessing }
 EDAEventSourcingEvent >> routingKey [
 	^ EDACSourceCodeHelperStub new
-		camelCaseToDotSeparated: (EDAMessageSerializer nameWithoutPrefixForMessageClass: self class)
+		camelCaseToDotSeparated: (EDACMessageSerializer nameWithoutPrefixForMessageClass: self class)
 ]
 
 { #category : #accessing }
