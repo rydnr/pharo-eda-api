@@ -1,7 +1,7 @@
 Class {
 	#name : #EDAProjectionRepository,
 	#superclass : #Object,
-	#category : #'EDAAPI-Projections'
+	#category : #'EDAAPI-Projections-Repositories'
 }
 
 { #category : #persistence }

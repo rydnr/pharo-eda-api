@@ -8,7 +8,7 @@ Class {
 		'concurrentSynchronization',
 		'executions'
 	],
-	#category : #'EDAAPI-Projections'
+	#category : #'EDAAPI-Projections-Projectors'
 }
 
 { #category : #api }

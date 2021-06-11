@@ -58,7 +58,7 @@ Class {
 		'errorStrategy',
 		'repository'
 	],
-	#category : #'EDAAPI-Projections'
+	#category : #'EDAAPI-Projections-Views'
 }
 
 { #category : #persistence }

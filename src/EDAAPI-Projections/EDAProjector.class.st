@@ -12,7 +12,7 @@ Class {
 		'errorStrategy',
 		'synchronizationInProgressByTenant'
 	],
-	#category : #'EDAAPI-Projections'
+	#category : #'EDAAPI-Projections-Projectors'
 }
 
 { #category : #'class initialization' }

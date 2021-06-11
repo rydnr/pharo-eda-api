@@ -1,7 +1,7 @@
 Class {
 	#name : #EDASingleProjectionPerEventProjector,
 	#superclass : #EDAProjector,
-	#category : #'EDAAPI-Projections'
+	#category : #'EDAAPI-Projections-Projectors'
 }
 
 { #category : #projecting }
