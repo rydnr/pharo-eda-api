@@ -11,6 +11,7 @@ BaselineOfPharoEDAApi >> baseline: spec [
 		for: #common
 		do: [ spec blessing: #baseline.
 			self includePharoEDACommon: spec.
+			self includeNeoJSON: spec.
 			self declarePackagesIn: spec.
 			self declareGroupsIn: spec ]
 ]
@@ -30,12 +31,21 @@ BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 		package: #'EDAAPI-Events'
 			with: [ spec requires: #('PharoEDACommon') ];
 		package: #'EDAAPI-Exceptions';
-		package: #'EDAAPI-Commands' with: [ spec requires: #('EDAAPI-Exceptions') ];
+		package: #'EDAAPI-Commands'
+			with: [ spec requires: #('EDAAPI-Exceptions') ];
 		package: #'EDAAPI-Aggregates';
 		package: #'EDAAPI-Logging';
 		package: #'EDAAPI-Projections'
 			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ];
-					package: #'EDAAPI-TestSupport'
+		package: #'EDAAPI-TestSupport' with: [ spec requires: #(#'NeoJSON') ]
+]
+
+{ #category : #dependencies }
+BaselineOfPharoEDAApi >> includeNeoJSON: spec [
+	spec
+		baseline: 'NeoJSON'
+		with: [ spec repository: 'github://svenvc/NeoJSON/repository' ].
+	^ spec
 ]
 
 { #category : #dependencies }
