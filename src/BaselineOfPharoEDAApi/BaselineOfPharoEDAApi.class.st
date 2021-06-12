@@ -36,8 +36,7 @@ BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 		package: #'EDAAPI-Aggregates';
 		package: #'EDAAPI-Logging';
 		package: #'EDAAPI-Projections'
-			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ];
-		package: #'EDAAPI-TestSupport' with: [ spec requires: #(#'NeoJSON') ]
+			with: [ spec requires: #(#'EDAAPI-Events' #'EDAAPI-Logging') ]
 ]
 
 { #category : #dependencies }
