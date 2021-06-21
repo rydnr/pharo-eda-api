@@ -21,7 +21,7 @@ BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 	spec
 		group: 'core'
 			with:
-			#(#'EDAAPI-Events' #'EDAAPI-Commands' #'EDAAPI-Aggregates' #'EDAAPI-Exceptions' #'EDAAPI-Buliders' #'EDAAPI-Logging' #'EDAAPI-Projections');
+			#(#'EDAAPI-Events' #'EDAAPI-Commands' #'EDAAPI-Aggregates' #'EDAAPI-Exceptions' #'EDAAPI-Builders' #'EDAAPI-Logging' #'EDAAPI-Projections');
 		group: 'default' with: #('core')
 ]
 
