@@ -4,7 +4,7 @@ This project contains the API shared by PharoEDA components.
 
 ## Motivation
 
-PharoEDA is a framework to build event-driven applications, following DDD principles, and using ports-and-adapters for the external layers. This repository contains the common classes used by the PharoEDA components: [PharoEDA-Adapters](https://github.com/osoco/pharo-eda-adapters "PharoEDA Adapters") and [PharoEDA](https://github.com/osoco/pharo-eda-adapters "PharoEDA") itself.
+PharoEDA is a framework to build event-driven applications, following DDD principles, and using ports-and-adapters for the external layers. This repository contains the common classes used by the PharoEDA components: [PharoEDA-Adapters](https://github.com/rydnr/pharo-eda-adapters "PharoEDA Adapters") and [PharoEDA](https://github.com/rydnr/pharo-eda-adapters "PharoEDA") itself.
 
 ## Design
 
@@ -17,7 +17,7 @@ You shouldn't need to add this repository to yours, unless you're developing Pha
 Anyway, if you need, you can load it via Metacello:
 
 ```smalltalk
-Metacello new repository: 'github://osoco/pharo-eda-api:main'; baseline: #PharoEDAApi; load
+Metacello new repository: 'github://rydnr/pharo-eda-api:main'; baseline: #PharoEDAApi; load
 ```
 
 ## Work in progress
