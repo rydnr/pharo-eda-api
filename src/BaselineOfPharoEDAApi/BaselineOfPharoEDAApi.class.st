@@ -76,7 +76,7 @@ BaselineOfPharoEDAApi >> postload: loader package: packageSpec [
 	| location |
 	location := (IceRepository registry detect: [ :each | 
 		             each name = 'pharo-eda-api' ]) location.
-	EDAIconProvider addDefaultLocation: location / 'resources' / 'icons'.
+	EDACIconProvider addDefaultLocation: location / 'resources' / 'icons'.
 	EDACTranslationProvider addDefaultLocation:
 		location / 'resources' / 'l10n'
 ]
