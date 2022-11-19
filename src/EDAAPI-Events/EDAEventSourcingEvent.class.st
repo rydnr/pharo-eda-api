@@ -147,10 +147,10 @@ EDAEventSourcingEvent >> id: anObject [
 
 { #category : #initialization }
 EDAEventSourcingEvent >> initialize [
+
 	super initialize.
 	self delete: false.
-	self timestamp ifNil: [ self timestamp: DateAndTime now asUTC ].
-	aggregateRootClass := self aggregateRootClass greaseString
+	self timestamp ifNil: [ self timestamp: DateAndTime now asUTC ]
 ]
 
 { #category : #accessing }
