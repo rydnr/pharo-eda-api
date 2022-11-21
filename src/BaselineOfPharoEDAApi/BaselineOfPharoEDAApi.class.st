@@ -23,11 +23,11 @@ BaselineOfPharoEDAApi >> baseline: spec [
 	<baseline>
 	spec for: #common do: [ 
 		spec blessing: #baseline.
-		spec postLoadDoIt: #'postload:package:'.
-		self includePharoEDACommon: spec.
-		self includeNeoJSON: spec.
-		self declarePackagesIn: spec.
-		self declareGroupsIn: spec ]
+		spec postLoadDoIt: #postload:package:.
+		self includeNeoJSON: spec;
+		 includePharoEDACommon: spec;
+		 declarePackagesIn: spec;
+		 declareGroupsIn: spec ]
 ]
 
 { #category : #meta }
