@@ -17,21 +17,8 @@ Class {
 	#category : #BaselineOfPharoEDAApi
 }
 
-{ #category : #baselines }
-BaselineOfPharoEDAApi >> baseline: spec [
-
-	<baseline>
-	spec for: #common do: [ 
-		spec blessing: #baseline.
-		spec postLoadDoIt: #postload:package:.
-		self includeNeoJSON: spec;
-		 includePharoEDACommon: spec;
-		 declarePackagesIn: spec;
-		 declareGroupsIn: spec ]
-]
-
 { #category : #meta }
-BaselineOfPharoEDAApi >> declareGroupsIn: spec [
+BaselineOfPharoEDAApi class >> declareGroupsIn: spec [
 	spec
 		group: 'core'
 			with:
@@ -40,7 +27,7 @@ BaselineOfPharoEDAApi >> declareGroupsIn: spec [
 ]
 
 { #category : #meta }
-BaselineOfPharoEDAApi >> declarePackagesIn: spec [
+BaselineOfPharoEDAApi class >> declarePackagesIn: spec [
 	spec
 		package: #'EDAAPI-Events'
 			with: [ spec requires: #('PharoEDACommon') ];
@@ -56,7 +43,7 @@ BaselineOfPharoEDAApi >> declarePackagesIn: spec [
 ]
 
 { #category : #dependencies }
-BaselineOfPharoEDAApi >> includeNeoJSON: spec [
+BaselineOfPharoEDAApi class >> includeNeoJSON: spec [
 	spec
 		baseline: 'NeoJSON'
 		with: [ spec repository: 'github://svenvc/NeoJSON/repository' ].
@@ -64,11 +51,25 @@ BaselineOfPharoEDAApi >> includeNeoJSON: spec [
 ]
 
 { #category : #dependencies }
-BaselineOfPharoEDAApi >> includePharoEDACommon: spec [
+BaselineOfPharoEDAApi class >> includePharoEDACommon: spec [
 	spec
 		baseline: 'PharoEDACommon'
 		with: [ spec repository: 'github://rydnr/pharo-eda-common:main' ].
 	^ spec
+]
+
+{ #category : #baselines }
+BaselineOfPharoEDAApi >> baseline: spec [
+
+	<baseline>
+	spec for: #common do: [ 
+		spec blessing: #baseline.
+		spec postLoadDoIt: #postload:package:.
+		self class
+			includeNeoJSON: spec;
+			includePharoEDACommon: spec;
+			declarePackagesIn: spec;
+			declareGroupsIn: spec ]
 ]
 
 { #category : #hooks }
