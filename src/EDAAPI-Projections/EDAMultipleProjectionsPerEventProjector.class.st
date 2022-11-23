@@ -4,9 +4,29 @@ Class {
 	#category : #'EDAAPI-Projections-Projectors'
 }
 
+{ #category : #accessing }
+EDAMultipleProjectionsPerEventProjector class >> errorHandlingBehavior [
+	^ self shouldBeImplemented
+]
+
+{ #category : #accessing }
+EDAMultipleProjectionsPerEventProjector class >> order [
+	^ self shouldBeImplemented
+]
+
+{ #category : #accessing }
+EDAMultipleProjectionsPerEventProjector class >> projectionClass [
+	^ self shouldBeImplemented
+]
+
 { #category : #'projection creation' }
 EDAMultipleProjectionsPerEventProjector >> createMissingProjections: aCollection forEvent: anEvent [
 	self subclassResponsibility
+]
+
+{ #category : #'projection creation' }
+EDAMultipleProjectionsPerEventProjector >> createNewProjectionForEvent: arg1 [ 
+	^ self shouldBeImplemented
 ]
 
 { #category : #projecting }

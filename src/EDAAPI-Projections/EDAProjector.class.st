@@ -1,6 +1,8 @@
 Class {
 	#name : #EDAProjector,
 	#superclass : #Object,
+	#traits : 'EDACLogging',
+	#classTraits : 'EDACLogging classTrait',
 	#instVars : [
 		'eventStore',
 		'tenant'

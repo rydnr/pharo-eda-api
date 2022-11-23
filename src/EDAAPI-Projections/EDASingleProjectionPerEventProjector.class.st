@@ -4,6 +4,26 @@ Class {
 	#category : #'EDAAPI-Projections-Projectors'
 }
 
+{ #category : #accessing }
+EDASingleProjectionPerEventProjector class >> errorHandlingBehavior [
+	^ self shouldBeImplemented
+]
+
+{ #category : #accessing }
+EDASingleProjectionPerEventProjector class >> order [
+	^ self shouldBeImplemented
+]
+
+{ #category : #accessing }
+EDASingleProjectionPerEventProjector class >> projectionClass [
+	^ self shouldBeImplemented
+]
+
+{ #category : #'projection creation' }
+EDASingleProjectionPerEventProjector >> createNewProjectionForEvent: arg1 [ 
+	^ self shouldBeImplemented
+]
+
 { #category : #projecting }
 EDASingleProjectionPerEventProjector >> delegateEventProjectionOf: anEvent in: aProjection to: aProjectionMethod [
 	| result |

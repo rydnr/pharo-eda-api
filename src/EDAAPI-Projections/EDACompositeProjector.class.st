@@ -38,6 +38,11 @@ EDACompositeProjector class >> doInitialize [
 ]
 
 { #category : #accessing }
+EDACompositeProjector class >> errorHandlingBehavior [
+	^ self shouldBeImplemented
+]
+
+{ #category : #accessing }
 EDACompositeProjector class >> executions [
 	^ executions
 ]
@@ -82,6 +87,16 @@ EDACompositeProjector class >> projectionClass [
 	^ self shouldBeImplemented
 ]
 
+{ #category : #'projection creation' }
+EDACompositeProjector >> createNewProjectionForEvent: arg1 [ 
+	^ self shouldBeImplemented
+]
+
+{ #category : #projecting }
+EDACompositeProjector >> delegateEventProjectionOf: arg1 in: arg2 to: arg3 andThen: arg4 [ 
+	^ self shouldBeImplemented
+]
+
 { #category : #api }
 EDACompositeProjector >> delegateProjectionTo: aProjector ofTenant: aTenant [
 	| start end |
@@ -91,6 +106,11 @@ EDACompositeProjector >> delegateProjectionTo: aProjector ofTenant: aTenant [
 	self class
 		annotateDuration: end - start
 		forProjector: aProjector class greaseString
+]
+
+{ #category : #projecting }
+EDACompositeProjector >> projectEvent: arg1 usingEmittingBlock: arg2 [ 
+	^ self shouldBeImplemented
 ]
 
 { #category : #api }
@@ -107,6 +127,11 @@ EDACompositeProjector >> projectFilteredEvents: anEventCollection ofTenant: aTen
 	projectors := self projectorsByTenant at: aTenant ifAbsent: [ nil ].
 	projectors do:
 		 [ :p | p projectFilteredEvents: anEventCollection ofTenant: aTenant ]
+]
+
+{ #category : #projecting }
+EDACompositeProjector >> projectFilteredEvents: arg1 ofTenant: arg2 usingBlock: arg3 [ 
+	^ self shouldBeImplemented
 ]
 
 { #category : #api }
