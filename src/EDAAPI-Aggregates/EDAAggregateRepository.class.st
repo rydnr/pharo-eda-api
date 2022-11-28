@@ -13,6 +13,12 @@ Class {
 	#category : #'EDAAPI-Aggregates'
 }
 
+{ #category : #setup }
+EDAAggregateRepository class >> belongTo: anEDAApplication [
+
+	self subclassResponsibility
+]
+
 { #category : #accessing }
 EDAAggregateRepository class >> eventStore [
 	^ eventStore
@@ -23,62 +29,12 @@ EDAAggregateRepository class >> eventStore: anEventStore [
 	eventStore := anEventStore
 ]
 
-{ #category : #logging }
-EDAAggregateRepository class >> logDebugMessage: aMessage beautify: aBoolean [
-	EDACLoggingSettings debugEnabled
-		ifTrue: [ self
-				logMessage: aMessage
-				inCategory: 'DEBUG'
-				inStream: self defaultStream
-				beautify: aBoolean ]
-]
-
-{ #category : #logging }
-EDAAggregateRepository class >> logErrorMessage: aMessage beautify: aBoolean [
-	EDACLoggingSettings errorEnabled
-		ifTrue: [ self
-				logMessage: aMessage
-				inCategory: 'ERROR'
-				inStream: self defaultStream
-				beautify: aBoolean ]
-]
-
-{ #category : #logging }
-EDAAggregateRepository class >> logInfoMessage: aMessage beautify: aBoolean [
-	EDACLoggingSettings infoEnabled
-		ifTrue: [ self
-				logMessage: aMessage
-				inCategory: 'INFO '
-				inStream: self defaultStream
-				beautify: aBoolean ]
-]
-
-{ #category : #logging }
-EDAAggregateRepository class >> logTraceMessage: aMessage beautify: aBoolean [
-	EDACLoggingSettings traceEnabled
-		ifTrue: [ self
-				logMessage: aMessage
-				inCategory: 'TRACE'
-				inStream: self defaultStream
-				beautify: aBoolean ]
-]
-
-{ #category : #logging }
-EDAAggregateRepository class >> logWarningMessage: aMessage beautify: aBoolean [
-	^ EDACLoggingSettings warningEnabled
-		ifTrue: [ self
-				logMessage: aMessage
-				inCategory: 'WARN '
-				inStream: self defaultStream
-				beautify: aBoolean ]
-]
-
 { #category : #setup }
 EDAAggregateRepository class >> setupEventStore: anEventStore [
-	anEventStore
-		ifNotNil: [ :es | 
-			self eventStore: es.
-			self uniqueInstance: nil ]
+
+	anEventStore ifNotNil: [ :es | 
+		(self belongTo: eventStore edaApplication) ifTrue: [ self eventStore: es.
+		self uniqueInstance: nil ] ]
 ]
 
 { #category : #setup }
