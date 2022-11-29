@@ -33,7 +33,7 @@ EDAAggregateRepository class >> eventStore: anEventStore [
 EDAAggregateRepository class >> setupEventStore: anEventStore [
 
 	anEventStore ifNotNil: [ :es | 
-		(self belongTo: eventStore edaApplication) ifTrue: [ self eventStore: es.
+		(self belongTo: es edaApplication) ifTrue: [ self eventStore: es.
 		self uniqueInstance: nil ] ]
 ]
 
