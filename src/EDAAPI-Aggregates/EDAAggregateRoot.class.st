@@ -116,11 +116,6 @@ EDAAggregateRoot class >> systemIcon [
 	^ Smalltalk ui icons iconNamed: #objects
 ]
 
-{ #category : #accessing }
-EDAAggregateRoot >> aggregateRepository [
-	self subclassResponsibility
-]
-
 { #category : #'applying events' }
 EDAAggregateRoot >> applyAggregateDeletedEvent: anEvent [
 	self isDeleted: true
@@ -305,11 +300,6 @@ EDAAggregateRoot >> checkNonCreateCommand: aCommand [
 								nextPutAll: ' does not exist in tenant ';
 								nextPutAll: aCommand tenant greaseString ])
 				andThrow: aCommand class invalidCommandMessageException ]
-]
-
-{ #category : #accessing }
-EDAAggregateRoot >> events [
-	^ self aggregateRepository findEventsById: self id.
 ]
 
 { #category : #'command handling' }
