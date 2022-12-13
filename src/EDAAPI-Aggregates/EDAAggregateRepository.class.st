@@ -19,42 +19,6 @@ EDAAggregateRepository class >> belongTo: anEDAApplication [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
-EDAAggregateRepository class >> eventStore [
-	^ eventStore
-]
-
-{ #category : #accessing }
-EDAAggregateRepository class >> eventStore: anEventStore [
-	eventStore := anEventStore
-]
-
-{ #category : #setup }
-EDAAggregateRepository class >> setupEventStore: anEventStore [
-
-	anEventStore ifNotNil: [ :es | 
-		(self belongTo: es edaApplication) ifTrue: [ self eventStore: es.
-		self uniqueInstance: nil ] ]
-]
-
-{ #category : #setup }
-EDAAggregateRepository class >> uniqueInstance [
-	| result |
-	result := uniqueInstance.
-	result
-		ifNil: [
-            result := self new.
-			self uniqueInstance: result.
-	        result eventStore ifNil: [ result eventStore: self eventStore ] ].
-	^ result
-
-]
-
-{ #category : #setup }
-EDAAggregateRepository class >> uniqueInstance: theInstance [
-	uniqueInstance := theInstance
-]
-
 { #category : #protected }
 EDAAggregateRepository >> aggregateClass [
 	self subclassResponsibility 
