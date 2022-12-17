@@ -108,6 +108,12 @@ EDAEventSourcingEvent >> aggregateRootClass [
 	^ self class aggregateRootClass
 ]
 
+{ #category : #'accessing - private' }
+EDAEventSourcingEvent >> aggregateRootClass: aClass [
+
+ aggregateRootClass := aClass
+]
+
 { #category : #accessing }
 EDAEventSourcingEvent >> aggregateRootVersion [
 	| result |
@@ -150,7 +156,8 @@ EDAEventSourcingEvent >> initialize [
 
 	super initialize.
 	self delete: false.
-	self timestamp ifNil: [ self timestamp: DateAndTime now asUTC ]
+	self timestamp ifNil: [ self timestamp: DateAndTime now asUTC ].
+	self aggregateRootClass: self aggregateRootClass
 ]
 
 { #category : #accessing }
