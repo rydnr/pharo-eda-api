@@ -4,15 +4,16 @@
   inputs = rec {
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
-    pharo-vm-12 = {
+    rydnr-nix-flakes-pharo-vm = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:rydnr/nix-flakes/pharo-vm-12.0.1519.4?dir=pharo-vm";
     };
-    pharo-eda-common-12 = {
+    rydnr-pharo-eda-common = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:rydnr/pharo-eda-common/0.1.1";
+      inputs.rydnr-nix-flakes-pharo-vm.follows = "rydnr-nix-flakes-pharo-vm";
+      url = "github:rydnr/pharo-eda-common/0.1.2";
     };
   };
   outputs = inputs:
@@ -22,7 +23,7 @@
         org = "rydnr";
         repo = "pharo-eda-api";
         pname = "${repo}";
-        tag = "0.1.0";
+        tag = "0.1.1";
         baseline = "PharoEDAApi";
         pkgs = import nixpkgs { inherit system; };
         description = "The API shared by PharoEDA components";
@@ -123,11 +124,11 @@
         packages = rec {
           default = pharo-eda-api-12;
           pharo-eda-api-12 = pharo-eda-api-for rec {
-            bootstrap-image-url = pharo-vm-12.resources.${system}.bootstrap-image-url;
-            bootstrap-image-sha256 = pharo-vm-12.resources.${system}.bootstrap-image-sha256;
-            bootstrap-image-name = pharo-vm-12.resources.${system}.bootstrap-image-name;
-            pharo-vm = pharo-vm-12.packages.${system}.pharo-vm;
-            pharo-eda-common = pharo-eda-common-12.packages.${system}.pharo-eda-common-12;
+            bootstrap-image-url = rydnr-nix-flakes-pharo-vm.resources.${system}.bootstrap-image-url;
+            bootstrap-image-sha256 = rydnr-nix-flakes-pharo-vm.resources.${system}.bootstrap-image-sha256;
+            bootstrap-image-name = rydnr-nix-flakes-pharo-vm.resources.${system}.bootstrap-image-name;
+            pharo-eda-common = rydnr-pharo-eda-common.packages.${system}.pharo-eda-common-12;
+            pharo-vm = rydnr-nix-flakes-pharo-vm.packages.${system}.pharo-vm;
           };
         };
       });

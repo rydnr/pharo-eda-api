@@ -1,8 +1,8 @@
 # nix/shared.nix
 #
-# This file provides functions used by ObjectDiff's Nix flake.
+# This file provides functions used by pharo-eda-api's Nix flake.
 #
-# Copyright (C) 2025-today rydnr's object-diff
+# Copyright (C) 2025-today rydnr's pharo-eda-api
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
