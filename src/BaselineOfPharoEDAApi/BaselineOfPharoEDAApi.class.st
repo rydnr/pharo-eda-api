@@ -43,14 +43,6 @@ BaselineOfPharoEDAApi class >> declarePackagesIn: spec [
 ]
 
 { #category : #dependencies }
-BaselineOfPharoEDAApi class >> includeNeoJSON: spec [
-	spec
-		baseline: 'NeoJSON'
-		with: [ spec repository: 'github://svenvc/NeoJSON/repository' ].
-	^ spec
-]
-
-{ #category : #dependencies }
 BaselineOfPharoEDAApi class >> includePharoEDACommon: spec [
 	spec
 		baseline: 'PharoEDACommon'
@@ -66,7 +58,6 @@ BaselineOfPharoEDAApi >> baseline: spec [
 		spec blessing: #baseline.
 		spec postLoadDoIt: #postload:package:.
 		self class
-			includeNeoJSON: spec;
 			includePharoEDACommon: spec;
 			declarePackagesIn: spec;
 			declareGroupsIn: spec ]
@@ -75,10 +66,16 @@ BaselineOfPharoEDAApi >> baseline: spec [
 { #category : #hooks }
 BaselineOfPharoEDAApi >> postload: loader package: packageSpec [
 
-	| location |
-	location := (IceRepository registry detect: [ :each | 
-		             each name = 'pharo-eda-api' ]) location.
-	EDACIconProvider addDefaultLocation: location / 'resources' / 'icons'.
-	EDACTranslationProvider addDefaultLocation:
-		location / 'resources' / 'l10n'
+	Locale localeID: 'es'.
+	(IceRepository registry
+		 detect: [ :each | each name = 'pharo-eda-api' ]
+		 ifNone: nil) ifNotNil: [ :repo |
+		| location |
+		location := repo location.
+		EDACIconProvider addDefaultLocation:
+			location / 'resources' / 'icons'.
+		EDACTranslationProvider addDefaultLocation:
+			location / 'resources' / 'l10n'.
+		NaturalLanguageTranslator current:
+			EDACCompositeTranslationProvider wrapCurrent ]
 ]
